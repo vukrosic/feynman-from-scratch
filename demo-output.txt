@@ -1,0 +1,112 @@
+
+=== step1_action.py
+ball 0.15 kg, in the air 2 s, real path peaks at 4.905 m
+path                             action
+the real path                    -4.800
+stay on the ground                0.000
+half as high                     -3.600
+twice as high                     0.000
+straight up, straight down       -3.609
+real path with a wobble          -4.391
+
+start flat on the ground, lower the action step by step
+steps until every point is within 1 mm of the real path: 766
+peak found 4.904 m, formula g*T*T/8 = 4.905 m
+action found -4.800, real -4.800
+
+=== step2_arrows.py
+toy world: 401 paths, bumps from -1 m to +1 m, one turn per (bump / 25 cm) squared
+arrows laid end to end without turning: 401
+length of the real sum:               34.8
+  from the 101 paths within 25 cm:     30.7
+  from the 300 paths outside:          6.0
+
+extra action of a 30 cm bump: summed 0.016655, formula 0.016655
+
+the real world: how big a bump before the arrow has turned half a turn
+ball, 150 g, 2 s                     4.23e-17 m
+grain of sand, 1 mg, 2 s             1.64e-14 m
+electron, 2 s                        1.72e-02 m
+electron, 1 millionth of a second    1.21e-05 m
+
+=== step3_mirror.py
+shortest path: x = 0, 1.4142 m.   path by the left edge: 2.2882 m
+toy light, wavelength 10 cm
+  strips: 400   arrows end to end: 400
+  whole mirror:                       50.6
+  middle quarter (|x| <= 25 cm):      67.9
+  left end (x <= -50 cm):              4.5   from 100 strips
+  left end, half scraped away:        29.1   from 48 strips
+  one band + one gap at x = -75 cm: 0.07273 m   grating formula: 0.07269 m
+red light, wavelength 650 nm
+  strips: 20000000   arrows end to end: 20000000
+  whole mirror:                     6779.0
+  middle quarter (|x| <= 25 cm):    6784.1
+  left end (x <= -50 cm):              1.2   from 5000000 strips
+  left end, half scraped away:   1591327.0   from 2500058 strips
+  one band + one gap at x = -75 cm: 4.725e-07 m   grating formula: 4.725e-07 m
+  lines per millimetre: 2116
+
+=== step4_diagrams.py
+alpha / pi = 0.0023228195
+order    diagrams  they add to    running total     digits right
+1        1         0.5            0.0011614097332   5
+2        -         -0.328478966   0.0011596374281   7
+3        -         1.18124146     0.0011596522323   10
+4        891       -1.9106        0.0011596521767   11
+5        12672     9.16           0.0011596521773   11
+
+measured            0.00115965218073
+this sum            0.00115965217732
+paper, all effects  0.00115965218178
+g / 2 measured      1.00115965218073
+g / 2 paper         1.00115965218178
+they differ by 1 part in 9.53e+11
+
+=== step5_limit.py
+parts  arrows to keep           memory
+1      2                        32 bytes
+2      4                        64 bytes
+3      8                        128 bytes
+10     1024                     16 KB
+30     1073741824               16 GB
+40     1099511627776            16 TB
+50     1125899906842624         16 PB
+
+300 parts: 2.04e+90 arrows, a number with 91 digits
+
+=== step6_trick.py
+I(k) = area under (x^k - 1) / ln x, from 0 to 1
+k = 0   by brute force 0.000000     ln(k + 1) = 0.000000
+k = 1   by brute force 0.693147     ln(k + 1) = 0.693147
+k = 2   by brute force 1.098612     ln(k + 1) = 1.098612
+k = 3   by brute force 1.386294     ln(k + 1) = 1.386294
+k = 10  by brute force 2.397895     ln(k + 1) = 2.397895
+
+turn the dial k a little: how fast does the area grow?
+k = 1   growth 0.500000   area under x^k 0.500000   1 / (k + 1) = 0.500000
+k = 2   growth 0.333333   area under x^k 0.333333   1 / (k + 1) = 0.333333
+k = 3   growth 0.250000   area under x^k 0.250000   1 / (k + 1) = 0.250000
+
+=== step7_oring.py
+flights: 23   with damage: 7   coldest so far: 53 F
+
+only the 7 flights with damage:
+  temperatures [53, 57, 58, 63, 70, 70, 75]
+  link between temperature and damage: +0.02
+all 23 flights:
+  below 65 F: 4 of 4 damaged      65 F and above: 3 of 19 damaged
+  link between temperature and damage: -0.51
+
+one neuron after 20000 steps: chance = squash(-0.2322 * F + 15.04)
+  81 F   chance of damage on a flight: 0.0227
+  70 F   chance of damage on a flight: 0.2300
+  65 F   chance of damage on a flight: 0.4881
+  53 F   chance of damage on a flight: 0.9392
+  31 F   chance of damage on a flight: 0.9996
+
+management said: 1 failure in 100000 flights = 0.00001
+  one launch a day, one failure in 274 years
+engineers said:  about 1 in 100            = 0.01000
+
+all checks pass
